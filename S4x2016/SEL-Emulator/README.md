@@ -1,10 +1,10 @@
-= DO NOT USE THIS AS A PRODUCTION HONEYPOT
-= DO NOT USE THIS AS A PRODUCTION HONEYPOT
-= DO NOT USE THIS AS A PRODUCTION HONEYPOT
+# DO NOT USE THIS AS A PRODUCTION HONEYPOT
+# DO NOT USE THIS AS A PRODUCTION HONEYPOT
+# DO NOT USE THIS AS A PRODUCTION HONEYPOT
 
-= SEL Emulator
+# SEL Emulator
 
-== About
+## About
 This is a pretty rudimentary 'SEL Emulator'. It was designed for use in the
 S4 (SCADA Security Scientific Symposium) conference in 2016. Players were
 tasked with identifying a digital protective relay, left available via a
@@ -22,14 +22,14 @@ vulnerabilities. Specifically, an attacker may gain a command line on your
 system with the privileges of the Python process. On a Raspberry Pi system with
 default configuration, an attacker could easily get root privileges on the Pi.
 
-== Installation
+## Installation
 
 There are two methods of using the honeypot.  The first method is to use the
 device as a Bluetooth honeypot.  The second method is to use it as a TCP (TELNET) honeypot.
 
 Again, do not use this in production.  There are security vulnerabilities both known and unknown in the implementation.  The CMD2 library features many backdoor commands, and an attacker can easily root your Raspberry Pi or any *nix system that you run this code on.
 
-=== Install as a Bluetooth device
+### Install as a Bluetooth device
 To install this project you will need a bluetooth adapter on your Raspberry Pi.
 This code depends upon features of an external Bluetooth Serial adapter. Specifically, you should use the Roving Networks RN-42.
 
@@ -56,6 +56,6 @@ dwc_otg.lpm_enable=0 console=tty1 root=/dev/mmcblk0p2 rootfstype=ext4 elevator=d
 
 You should now be able to reboot your Pi. You should now see the Bluetooth device as pairable.  Pair with your PIN, and you may open a serial terminal on your laptop.  Press the 'enter' key to see the classic SEL '=' prompt, indicating that you are logged in with no authentication.
 
-=== Installation as a TCP Service
+### Installation as a TCP Service
 
 TODO =).  You can just wrap the sel.py script in a netcat server call, if you wish, as 'nc -l -k -p 23 -e python /path/to/sel.py'.  For slightly better security, it may be better to run this as a service with 'nobody/nogroup' privileges. We will post instructions soon.
